@@ -3,3 +3,4 @@ Programa para fazer a alteração dos dados dos usuários de string para Slice d
 
 
 go get go.mongodb.org/mongo-driver/mongo
+go get github.com/spf13/viper 
