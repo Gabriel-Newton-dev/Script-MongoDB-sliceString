@@ -12,11 +12,9 @@ import (
 )
 
 var (
-	dbUrl      = viper.Get("DB_URL")
-	dbName     = viper.Get("DB_NAME")
-	dbUser     = viper.Get("DB_USER")
-	dbPassword = viper.Get("DB_PASSWORD")
-	dbPort     = viper.Get("DB_PORT")
+	dbUrl  = viper.Get("DB_URL")
+	dbName = viper.Get("DB_NAME")
+	dbPort = viper.Get("DB_PORT")
 )
 
 func ConnectDB() (*mongo.Client, error) {
@@ -26,7 +24,7 @@ func ConnectDB() (*mongo.Client, error) {
 	stringDeconexao := fmt.Sprintf("%s://%s:%s", dbName, dbUrl, dbPort)
 	client, err := mongo.Connect(ctx, options.Client().ApplyURI(stringDeconexao))
 	if err != nil {
-		log.Panic("Error connection database")
+		log.Panic("database connection error")
 	}
 
 	defer func() {
